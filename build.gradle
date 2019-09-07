@@ -1,0 +1,12 @@
+subprojects {
+
+    group = 'com.service.bookstore'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    task listAllDependencies(type: DependencyReportTask) {}
+}

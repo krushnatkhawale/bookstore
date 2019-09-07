@@ -1,0 +1,15 @@
+build/
+app/build/
+app/out/
+bookstore-frontend/node_modules/
+node_modules/
+.idea/
+.gradle/
+bookstore-frontend/dist
+bookstore-frontend/tmp
+bookstore-frontend/out-tsc
+bookstore-frontend/bazel-out
+bookstore-frontend/node_modules
+bookstore-frontendchrome-profiler-events*.json
+bookstore-frontend/speed-measure-plugin*.json
+bookstore-frontend/.idea
