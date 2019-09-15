@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Book } from '../service/model/Book'
+import { BookControllerService } from '../service/api/bookController.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-book-details',
@@ -7,21 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 
- private book =  {
-            "id": 1,
-            "title": "this is book 1",
-            "description": "this is book 1",
-            "unitCost": 345.0,
-            "isbn": "ISBN-1",
-            "publicationDate": "2015-12-11",
-            "nbOfPages": 2323,
-            "imageUrl": "https://www.gstatic.com/webp/gallery3/1.png",
-            "language": null
-    }
+  book: Book
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute, private bookService: BookControllerService) { }
 
   ngOnInit() {
+     var idToFetch = this.route.snapshot.params['bookId']
+     this.bookService.getBookUsingGET(idToFetch).subscribe( book => this.book = book );
   }
 
+  delete(){
+     console.log('Deleting: ' + this.book.id)
+     console.log('Deleting: ' + this.book.id)
+     console.log('Deleting: ' + this.book.id)
+     console.log('Deleting: ' + this.book.id)
+     console.log('Deleting: ' + this.book.id)
+     console.log('Deleting: ' + this.book.id)
+     console.log('Deleting: ' + this.book.id)
+     console.log('Deleting: ' + this.book.id)
+     console.log('Deleting: ' + this.book.id)
+     this.bookService.deleteBookUsingDELETE(this.book.id);
+     this.router.navigate(['/book-list']);
+  }
 }
