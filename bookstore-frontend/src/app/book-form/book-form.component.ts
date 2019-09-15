@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+import { Book } from '../service/model/Book'
+import { Observable } from 'rxjs';
+import { BookControllerService } from '../service/api/bookController.service'
 
 @Component({
   selector: 'app-book-form',
@@ -7,21 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookFormComponent implements OnInit {
 
-    book =  {
-             "id": 11,
-             "title": "this is book 1111",
-             "description": "this is book 11111",
-             "unitCost": 345.0,
-             "isbn": "ISBN-12345",
-             "publicationDate": "2015-12-11",
-             "nbOfPages": 2323,
-             "imageUrl": "https://www.gstatic.com/webp/gallery3/1.png",
-             "language": null
-     }
+   private book: Book;
 
-  constructor() { }
+  constructor(private router: Router, private bookService: BookControllerService) { }
 
   ngOnInit() {
   }
 
+  create(){
+
+    this.bookService.saveBookUsingPOST(this.book).subscribe( resp => this.router.navigate(['/book-list']));
+  }
 }
