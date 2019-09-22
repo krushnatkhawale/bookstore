@@ -1,16 +1,17 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module'
+import { AppComponent } from '/app.component'
+import { BrowserModule } from '@angular/platform-browser'
+import { FormsModule } from '@angular/forms'
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
-
-
 import { BookControllerService } from './api/bookController.service';
 
 @NgModule({
-  imports:      [],
-  declarations: [],
-  exports:      [],
-  providers: [
-    BookControllerService ]
+  imports:      [ FormsModule, BrowserModule, AppRoutingModule, HttpClient ],
+  declarations: [ BookFormComponent, AppComponent, BookDetailsComponent, BookListComponent ],
+  exports:      [ AppComponent ],
+  providers: [ BookControllerService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
