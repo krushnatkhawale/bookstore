@@ -33,8 +33,4 @@ jobs:
         sh gradlew clean test
     - name: Create executable Jar
       run: |
-        sh gradlew build        
-    - name: Code quality using SonarCloud Scan
-      uses: SonarSource/sonarcloud-github-action@v1.6
-      with:
-        projectBaseDir: app
+        sh gradlew build
