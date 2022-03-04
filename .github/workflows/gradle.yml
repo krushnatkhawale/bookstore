@@ -31,9 +31,6 @@ jobs:
     - name: Run tests
       run: |
         sh gradlew clean test
-    - name: Verify Code coverage
-      run: |
-        sh gradlew jacocoTestCoverageVerification
     - name: Create executable Jar
       run: |
         sh gradlew build        
