@@ -27,19 +27,15 @@ jobs:
         distribution: 'temurin'
     - name: List files in java module
       run: |
-        cd java 
         ls -ltr
     - name: Run tests
       run: |
-        cd java 
         sh gradlew clean test
     - name: Verify Code coverage
       run: |
-        cd java 
         sh gradlew jacocoTestCoverageVerification
     - name: Create executable Jar
       run: |
-        cd java 
         sh gradlew build        
     - name: Code quality using SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v1.6
