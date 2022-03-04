@@ -25,10 +25,22 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
-      with:
-        arguments: build
+    - name: List files in java module
+      run: |
+        cd java 
+        ls -ltr
+    - name: Run tests
+      run: |
+        cd java 
+        sh gradlew clean test
+    - name: Verify Code coverage
+      run: |
+        cd java 
+        sh gradlew jacocoTestCoverageVerification
+    - name: Create executable Jar
+      run: |
+        cd java 
+        sh gradlew build        
     - name: Code quality using SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@v1.6
       with:
