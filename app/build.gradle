@@ -1,6 +1,6 @@
 plugins {
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.1.6'
+    id 'org.springframework.boot' version '2.7.18'
     id 'java'
 }
 
@@ -13,6 +13,6 @@ dependencies {
     annotationProcessor "org.projectlombok:lombok"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
     implementation 'com.h2database:h2'
-    implementation 'io.springfox:springfox-swagger2:2.9.2'
-    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+    implementation 'io.springfox:springfox-swagger2:2.10.5'
+    implementation 'io.springfox:springfox-swagger-ui:2.10.5'
  }
